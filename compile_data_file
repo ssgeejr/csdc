@@ -1,15 +1,38 @@
 #!/bin/bash
+source .env
 
-for i in `seq 1 10`;
+echo "Source Dir: $source_dir"
+echo "Target Dir: $target_dir"
+echo "Source Folder: $source_folder"
+echo "Target Folder: $target_folder"
+
+echo ""
+echo "Source path: $source_dir/$source_folder"
+echo "Target path: $target_dir/$target_folder"
+echo "--------------------------------"
+echo ""
+date
+
+times=""
+
+echo "process^real^user^sys"
+for i in `seq 1 $instance_count`;
         do
-	input="/opt/dev/thread$i.time"
-	echo "File thread$i.time"
+	input="$target_dir/commit$i.time"
+#	echo "File commit$i.time"
 
 	while IFS= read -r var
 	do
         	if [ -n "$var" ]; then
-                	echo "$var"
+#                	echo "$var"
+			tokens=( $var )
+			if [ -n "$times" ]; then
+				times=$times^${tokens[1]}
+			else
+				times=commit$i.time^${tokens[1]}
+			fi
         	fi
-	done < "$input" < "$input"
-	#done < "$input"
+	done < "$input" 
+	echo -e $times
+	times=""
 done

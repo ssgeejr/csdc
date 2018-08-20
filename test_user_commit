@@ -1,0 +1,22 @@
+#!/bin/bash
+
+source .env
+echo "Source Dir: $source_dir"
+echo "Target Dir: $target_dir"
+echo "Source Folder: $source_folder"
+echo "Target Folder: $target_folder"
+
+
+
+date
+
+for i in `seq 1 $instance_count`;
+
+        do
+		cd  $target_dir/$target_folder$i
+		{ time mvn clean package > 1 2&>1; } &> $target_dir/commit$i.time &
+		echo "TestCompile$i has starter"
+        done
+
+exit 0
+

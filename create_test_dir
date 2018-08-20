@@ -1,9 +1,6 @@
 #!/bin/bash
 
-source_dir=/opt/dev
-target_dir=/opt/dev
-source_folder=MasterArchAngel
-target_folder=TestingProject
+source .env
 
 echo "Source Dir: $source_dir"
 echo "Target Dir: $target_dir"
@@ -16,10 +13,11 @@ echo "Target path: $target_dir/$target_folder"
 echo "--------------------------------"
 echo ""
 date
-for i in `seq 1 10`;
+
+for i in `seq 1 $instance_count`;
         do
                 echo "creating test project $target_folder$i"
-#               cp -R MasterArchAngel ArchAngel$i
+               cp -R $source_dir/$source_folder $target_dir/$target_folder$i
         done
 
 exit 0
