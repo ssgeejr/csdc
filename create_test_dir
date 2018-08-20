@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source_dir=/opt/dev
+target_dir=/opt/dev
+source_folder=MasterArchAngel
+target_folder=TestingProject
+
+
+
+date
+for i in `seq 1 10`;
+        do
+		echo "creating test project $target_folder$i"
+#		cp -R MasterArchAngel ArchAngel$i
+        done
+
+exit 0

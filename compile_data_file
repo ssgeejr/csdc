@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for i in `seq 1 10`;
+        do
+	input="/opt/dev/thread$i.time"
+	echo "File thread$i.time"
+
+	while IFS= read -r var
+	do
+        	if [ -n "$var" ]; then
+                	echo "$var"
+        	fi
+	done < "$input" < "$input"
+	#done < "$input"
+done

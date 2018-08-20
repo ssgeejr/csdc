@@ -1,0 +1,38 @@
+#!/bin/bash
+date
+
+
+
+for i in `seq 1 10`;
+        do
+		cd /opt/dev/ArchAngel$i
+		{ time ./bootstrap > 1 2&>1; } &> /opt/dev/thread$i.time &
+		echo "ArchAnge$i build starter"
+        done
+
+exit 0
+
+
+echo "ArchAnge-1 build starter"
+cd /opt/dev/ArchAngel
+{ time ./bootstrap > 1 2&>1; } &> /opt/dev/thread1.time
+
+echo "ArchAnge-2 build starter"
+cd /opt/dev/ArchAngel2
+{ time ./bootstrap > 1 2&>1; } &> /opt/dev/thread2.time
+
+echo "ArchAngel2 build starter"
+cd /opt/dev/ArchAngel3
+{ time ./bootstrap > 1 2&>1; } &> /opt/dev/thread3.time
+
+echo "ArchAngel3 build starter"
+cd /opt/dev/ArchAngel4
+{ time ./bootstrap > 1 2&>1; } &> /opt/dev/thread4.time
+
+echo "ArchAngel4 build starter"
+cd /opt/dev/ArchAngel5
+{ time ./bootstrap > 1 2&>1; } &> /opt/dev/thread5.time
+
+
+date
+echo ""
