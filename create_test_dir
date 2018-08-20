@@ -5,13 +5,23 @@ target_dir=/opt/dev
 source_folder=MasterArchAngel
 target_folder=TestingProject
 
+echo "Source Dir: $source_dir"
+echo "Target Dir: $target_dir"
+echo "Source Folder: $source_folder"
+echo "Target Folder: $target_folder"
 
-
+echo ""
+echo "Source path: $source_dir/$source_folder"
+echo "Target path: $target_dir/$target_folder"
+echo "--------------------------------"
+echo ""
 date
 for i in `seq 1 10`;
         do
-		echo "creating test project $target_folder$i"
-#		cp -R MasterArchAngel ArchAngel$i
+                echo "creating test project $target_folder$i"
+#               cp -R MasterArchAngel ArchAngel$i
         done
 
 exit 0
+~
+
